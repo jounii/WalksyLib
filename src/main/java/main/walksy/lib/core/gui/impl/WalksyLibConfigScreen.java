@@ -218,8 +218,15 @@ public class WalksyLibConfigScreen extends BaseScreen {
     }
 
     @Override
+    public void extractRenderState(final GuiGraphicsExtractor extractor, final int mouseX, final int mouseY, final float delta) {
+        // Screen extracts registered widgets before BaseScreen calls extract().
+        // Give those widgets this frame's context, including on the first frame.
+        this.currentGraphicsContext = new Graphics(extractor);
+        super.extractRenderState(extractor, mouseX, mouseY, delta);
+    }
+
+    @Override
     protected void extract(final Graphics graphics, final int mouseX, final int mouseY) {
-        this.currentGraphicsContext = graphics;
         final GuiGraphicsExtractor extractor = graphics.extractor();
         this.suppressWidgetMouse = this.popUp != null;
         extractor.horizontalLine(0, this.width, 25, MainColors.OUTLINE_BLACK.getRGB());

@@ -30,9 +30,10 @@
 		"walksylib.mixins.json"
 	],
 	"depends": {
-		"fabricloader": "*",
-		"minecraft": "*",
-		"java": ">=17"
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+        "fabric-api": ">=0.161.0"
 	},
 	"custom": {
 		"modmenu": {

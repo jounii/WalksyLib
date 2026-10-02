@@ -11,7 +11,7 @@
       "HudMixin",
 		"MinecraftClientMixin",
 		"GameRendererMixin",
-		"InputUtilMixin",
+		"MouseHandlerMixin",
 		"EditBoxAccessor"
 	],
 	"injectors": {

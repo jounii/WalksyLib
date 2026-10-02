@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.15-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom' version '1.17.21'
     id 'maven-publish'
 }
 
@@ -67,6 +67,15 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+        }
+    }
+}
+// Publish the development library inside this workspace.
+publishing {
+    repositories {
+        maven {
+            name = "Workspace"
+            url = uri("../.maven-local")
         }
     }
 }
